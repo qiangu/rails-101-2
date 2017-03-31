@@ -20,8 +20,16 @@ class PostsController < ApplicationController
     end
   end
 
-  private
+  def edit
 
+  end
+
+  def destroy
+    @post.destroy 
+    flash[:alert] = "Post deleted"
+  end
+
+private
   def post_params
     params.require(:post).permit(:content)
   end
