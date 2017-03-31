@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-  end 
+  end
 
   def new
     @group = Group.new
@@ -20,7 +20,18 @@ class GroupsController < ApplicationController
     @group.save
 
       redirect_to groups_path
-end
+  end
+
+  def update
+    @group = Group.find(params[:id])
+
+    @group.update(group_params)
+
+    redirect_to groups_path, notice: "Update Success"
+
+  end
+
+
 
   private
 
